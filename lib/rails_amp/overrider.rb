@@ -24,7 +24,7 @@ module RailsAmp
             actions.to_a.each do |action|
               define_method action.to_sym do
                 super()
-                unless performed?
+                if !performed? && RailsAmp.amp_renderable?(controller_path, action_name)
                   respond_to do |format|
                     format.send(RailsAmp.default_format.to_sym) do
                       # search amp format(default is .amp) .html templates
