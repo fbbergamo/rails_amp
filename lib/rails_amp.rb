@@ -89,7 +89,7 @@ module RailsAmp
     end
 
     def amp_renderable?(controller_path, action_name)
-      amp_format? && target?(controller_path, action_name)
+      amp_format?
     end
   })
 end
